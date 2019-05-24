@@ -11,18 +11,18 @@
 <body class='has-navbar-fixed-top'>
   <nav class='navbar is-fixed-top is-success'>
     <div class="navbar-start">
-      <ul class="">
-        <li>
-          <% if (user) { %>
-            <a href="/logout"><i class=""></i>Log Out</a>
+    </div>
+      <div class="navbar-end">
+        <ul class="">
+          <li>
+            <% if (user) { %>
+              <a href="/logout"><i class=""></i>Log Out</a>
             <% } else { %>
               <a href="/auth/google"><i class=""></i>Login with Google</a>
-              <% } %>
-            </li>
-          </ul>
-        </div>
-        <div class="navbar-end">
-      </div>
+            <% } %>
+          </li>
+        </ul>
+    </div>
   </nav>
   <main>
     <!-- <h1><%= title %></h1> -->
