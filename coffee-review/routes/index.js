@@ -1,14 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport');
-const usersController = require('../controllers/users');
+const usersCtrl = require('../controllers/users');
 
-router.get('/protected', isLoggedIn, usersController.privateView);
+router.get('/protected', isLoggedIn, usersCtrl.privateView);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', usersCtrl.index);
+
 
 //Google Oauth login routes
 router.get('/auth/google', passport.authenticate(

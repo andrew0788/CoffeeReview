@@ -6,8 +6,8 @@ const userSchema = new Schema({
   email: String,
   googleID: String
 }, {
-
+  timestamps: true
 })
 
 
-module.exports = mongoose.modele
+module.exports = mongoose.model('User', userSchema)

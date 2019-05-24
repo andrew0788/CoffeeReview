@@ -5,11 +5,12 @@ module.exports ={
   privateView
 }
 
-function index(req, res){
+function index(req, res, next){
+  console.log(req.query);
   res.render('index', {
     user: req.user,
     name: req.query.name,
-    tile: 'Welcome to OAUth'
+    title: req.user
   });
 }
 

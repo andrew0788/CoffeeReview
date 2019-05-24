@@ -7,6 +7,7 @@ const passport = require('passport');
 var logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
+require('./config/passport')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
