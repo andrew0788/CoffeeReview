@@ -13,7 +13,9 @@ function(accessToken, refreshToken, profile, cb) {
   //a use has logged in with  OAUth
   User.findOne({ 'googleId': profile.id }, function(err, user){
     if (err) return cb(err);
-    if (! user) {
+    if (user) {
+      return cb(null, user);
+    } else{
       let newUser = new User({
         name: profile.displayName,
         email: profile.emails[0]. value,
@@ -22,9 +24,7 @@ function(accessToken, refreshToken, profile, cb) {
       newUser.save(function(err){
         if (err) return cb(err);
         return cb(null, newUser);
-      });
-    } else{
-      return cb(null, user);
+        });
       }
     });
   }

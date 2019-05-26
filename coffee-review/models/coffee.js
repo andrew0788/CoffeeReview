@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Review = require('Review');
+const Review = require('./review');
 
 const coffeeSchema = new Schema({
-  name: String,
-  roaster: String,
+  name: {
+    type: String,
+    required: true,
+  },
   region: String,
+  roaster: {
+    type: String,
+    required: true,
+  },
   description: String,
-  reviews: [Review.reviewSchema]
+  reviews: [{type:Schema.Types.ObjectId, ref:'Review'}],
 })
 
 

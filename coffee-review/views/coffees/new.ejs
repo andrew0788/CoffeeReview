@@ -1,6 +1,19 @@
 <%- include('./../partials/header') %>
 
-    <h1><%= title %></h1>
-    <p>Welcome to <%=  %></p>
+    <form class="" action="/coffee" method="POST">
+      <label>Coffee name:
+        <input type="text" name="name" value="">
+      </label>
+      <label>Region:
+        <input type="text" name="region" value="">
+      </label>
+      <label>Roasted by:
+        <input type="text" name="roaster" value="">
+      </label>
+      <label>Other information:
+        <input type="text" name="discription" value="">
+      </label>
+      <button type="submit" name="add-coffee">Submit coffeee</button>
+    </form>
 
 <%- include('./../partials/footer') %>

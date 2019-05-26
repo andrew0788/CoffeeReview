@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-module.exports ={
+module.exports = {
   index,
   privateView
 }
@@ -10,7 +10,7 @@ function index(req, res, next){
   res.render('index', {
     user: req.user,
     name: req.query.name,
-    title: req.user
+    title: ""
   });
 }
 

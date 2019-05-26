@@ -2,14 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-  coffee: ObjectId
+  coffee: String,
   flavorNotes: {
-    type: [notes]
+    type: [String]
   },
-  score: Integer,
+  score: Number,
   brewStyle: String,
   reviewText: String,
-  creator: ObjectId
+  creator: String,
+  reviewDate: {
+    type: Number,
+    default: function(){
+      return new Date()
+    },
+  }
 })
 
 
