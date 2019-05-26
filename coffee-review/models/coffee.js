@@ -15,6 +15,7 @@ const coffeeSchema = new Schema({
   },
   description: String,
   reviews: [{type:Schema.Types.ObjectId, ref:'Review'}],
+  link: Sting
 })
 
 
