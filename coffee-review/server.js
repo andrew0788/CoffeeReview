@@ -1,19 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-var logger = require('morgan');
+const logger = require('morgan');
+const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
+
+const app = express();
+
 require('./config/database');
-require('./config/passport')
+require('./config/passport');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var coffeesRouter = require('./routes/coffees');
 
-var app = express();
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const coffeesRouter = require('./routes/coffees');
+const reviewsRouter = require('./routes/reviews');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/coffees', coffeesRouter);
+app.use('/reviews', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

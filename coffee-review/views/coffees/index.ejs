@@ -1,10 +1,12 @@
 <%- include('./../partials/header') %>
-  <div class="tile is-ancestor">
-  <% coffees.forEach(function(c){%>
+  <div class="tile is-ancestor is-clearfix">
+  <% coffees.forEach(function(c){ %>
+    <% console.log(c); %>
     <div class="tile">
-      <h4><%= c.name %></h4>
+      <a href="/coffees/<%= c._id %>"><%= c.name %></a>
+      <h4><%= c.roaster %></h4>
     </div>
-  <% }) %>
+   <% }) %>
 </div>
 
 <%- include('./../partials/footer') %>

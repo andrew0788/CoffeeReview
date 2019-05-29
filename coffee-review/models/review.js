@@ -9,7 +9,9 @@ const reviewSchema = new Schema({
   score: Number,
   brewStyle: String,
   reviewText: String,
-  creator: String,
+  creator: {
+    type: String,
+    },
   reviewDate: {
     type: Number,
     default: function(){

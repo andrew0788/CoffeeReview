@@ -4,6 +4,7 @@ var userCtrl = require('../controllers/users')
 
 /* GET users listing. */
 router.get('/', userCtrl.index);
+router.get('/:id/update', userCtrl.update);
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

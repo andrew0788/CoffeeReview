@@ -1,22 +1,31 @@
 <%- include('./../partials/header') %>
 
-    <form class="" action="/coffee" method="POST">
-      <label>Coffee name:
-        <input type="text" name="name" value="">
-      </label>
-      <label>Region:
-        <input type="text" name="region" value="">
-      </label>
-      <label>Roasted by:
-        <input type="text" name="roaster" value="">
-      </label>
-      <label>Other information:
-        <input type="text" name="discription" value="">
-      </label>
-      <label>link to webpage:
-        <input type="text" name="link" value="">
-      </label>
-      <button type="submit" name="add-coffee">Submit coffeee</button>
+  <div class="field is-grouped is-grouped-centered">
+    <form class="" action="/coffees" method="POST">
+      <label class="label">Coffee name:</label>
+      <div class="control">
+        <input class="input" type="text" name="name" value="">
+      </div>
+      <label class ="label">Region:</label>
+      <div class="control">
+        <input class="input" type="text" name="region" value="">
+      </div>
+      <label class="label">Roasted by:</label>
+      <div class="control">
+        <input class="input" type="text" name="roaster" value="">
+      </div>
+      <div class="control">
+        <label class="label">link to webpage:</label>
+        <input class="input" type="text" name="link" value="">
+      </div>
+      <div class="">
+      <label class="label">Other information</label>
+      <div class="control">
+        <textarea class="textarea" name="description"></textarea>
+      </div>
+      <button class="button" type="submit" name="add-coffee">Submit coffeee</button>
+    </div>
     </form>
+  </div>
 
 <%- include('./../partials/footer') %>

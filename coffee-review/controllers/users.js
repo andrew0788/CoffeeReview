@@ -2,6 +2,7 @@ const User = require('../models/user');
 
 module.exports = {
   index,
+  update,
   privateView
 }
 
@@ -11,6 +12,14 @@ function index(req, res, next){
     user: req.user,
     name: req.query.name,
     title: ""
+  });
+}
+
+function update(res, req){
+  res.redirect('user/update', {
+    user: req.use,
+    name: req.query.name,
+    title: ''
   });
 }
 

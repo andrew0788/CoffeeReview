@@ -1,0 +1,12 @@
+<%- include('./../partials/header') %>
+  <% console.log(coffee); %>
+  <div class="field">
+    <a href="<%= coffee.link %>">
+      <%= coffee.roaster %>
+    </a>
+  <form class="" action="reviews/<%= coffee._id %>" method="GET">
+    <button class='button'>Add New Review</button>
+  </form>
+</div>
+
+<%- include('./../partials/footer') %>
