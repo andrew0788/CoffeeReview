@@ -1,0 +1,19 @@
+<%- include('./../partials/header') %>
+
+<div class="level">
+  <h1 class="label"><%= user.name %></h1>
+
+</div>
+<div class="field is-grouped is-grouped-centered">
+  <form class="" action="users/<%= user.id %>/update" method="POST">
+    <label class="label">What equipment do you have?</label>
+      <div class="control">
+        <div class="input">
+          <select class="" name="equipment">
+        </div>
+      </div>
+      <button class="button" type="submit">Save Review</button>
+      </div>
+    </form>
+</div>
+<%- include('./../partials/footer') %>

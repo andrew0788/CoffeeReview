@@ -16,7 +16,7 @@ function index(req, res, next){
 }
 
 function update(res, req){
-  res.redirect('user/update', {
+  res.redirect('users/update', {
     user: req.use,
     name: req.query.name,
     title: ''

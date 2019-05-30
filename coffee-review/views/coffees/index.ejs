@@ -1,10 +1,24 @@
 <%- include('./../partials/header') %>
-  <div class="tile is-ancestor is-clearfix">
+  <div class="columns">
   <% coffees.forEach(function(c){ %>
     <% console.log(c); %>
-    <div class="tile">
-      <a href="/coffees/<%= c._id %>"><%= c.name %></a>
+    <div class="column">
+      <article class="media">
+      <figure class= media-left>
+        <a class="label link" href="/coffees/<%= c._id %>">
+        <p class='image is-64x64'>
+          <% if (c.imageLink) { %>
+            <img src="src="<%= c.imageLink %>" alt="roaster">
+          <% } else { %>
+            <img src="/images/paul-esch-laurent-1598744-unsplash.jpg" alt="Image of <%= c.name %>">
+          <% }; %>
+        </p>
+      </figure>
+        <%= c.name %>
+      </a>
+      <h4><%= c.region %></h4>
       <h4><%= c.roaster %></h4>
+    </article>
     </div>
    <% }) %>
 </div>

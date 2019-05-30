@@ -1,12 +1,28 @@
 <%- include('./../partials/header') %>
-  <% console.log(coffee); %>
+
   <div class="field">
     <a href="<%= coffee.link %>">
       <%= coffee.roaster %>
     </a>
-  <form class="" action="reviews/<%= coffee._id %>" method="GET">
-    <button class='button'>Add New Review</button>
-  </form>
+    </div>
+    <% coffee.reviews.forEach(function(r){ %>
+      <% console.log(r.author); %>
+      <article class="media">
+        <figure class="media-left">
+          <p><%= r.author %></p>
+        </figure>
+        <div class="media-content">
+          <p><%= r.score %></p>
+          <p><%= r.brewStyle %></p>
+          <p><%= r.reviewText %></p>
+        </div>
+      </article>
+        <% }); %>
+      <div class="column">
+        <article class="media">
+        </article>
 </div>
-
+<a class="button" href="<%= coffee._id %>/reviews">
+  Add New Review
+</a>
 <%- include('./../partials/footer') %>

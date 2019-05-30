@@ -1,6 +1,6 @@
 <%- include('./../partials/header') %>
 <div class="field is-grouped is-grouped-centered">
-  <form class="" action="/reviews" method="POST">
+  <form class="" action="/coffees/<%= coffee.id %>/reviews" method="POST">
     <label class="label">Overall Score:</label>
       <div class="control">
         <div class="select">
@@ -18,27 +18,17 @@
         <input class="input" type="text" name="brewStyle" value="">
       </div>
     <label class ="label">Flavor Notes:</label>
-      <div class="control">
-        <input class="input" type="text" name="flavorNotes" value="">
-        <p class="help">seperate with commas</p>
-      </div>
-    <label class="label">Roasted by:</label>
-      <div class="control">
-        <input class="input" type="text" name="roaster" value="">
-      </div>
-      <div class="control">
-            <label class="label">link to webpage:</label>
-            <input class="input" type="text" name="link" value="">
-          </div>
-          <div class="">
-          <label class="label">Notes:</label>
-          <div class="control">
-            <textarea class="textarea" name="reviewText"></textarea>
-          </div>
-          <button class="button" type="submit" name="add-coffee">Save Review</button>
-        </div>
-        </form>
+    <div class="control">
+      <input class="input" type="text" name="flavorNotes" value="">
+      <p class="help">seperate with commas</p>
     </div>
-  </form>
+      <label class="label">Review:</label>
+      <div class="control">
+        <textarea class="textarea" name="reviewText"></textarea>
+      <div class="control">
+        <button class="button" type="submit">Save Review</button>
+      </div>
+    </form>
+</div>
 
 <%- include('./../partials/footer') %>

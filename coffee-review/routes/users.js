@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var userCtrl = require('../controllers/users')
+var usersCtrl = require('../controllers/users')
 
 /* GET users listing. */
-router.get('/', userCtrl.index);
-router.get('/:id/update', userCtrl.update);
+router.get('/:id', usersCtrl.index);
+router.get('/:id/update', usersCtrl.update);
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

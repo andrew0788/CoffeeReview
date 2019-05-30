@@ -1,23 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const reviewSchema = new Schema({
   coffee: String,
-  flavorNotes: {
-    type: [String]
-  },
+  flavorNotes: String,
   score: Number,
   brewStyle: String,
   reviewText: String,
-  creator: {
-    type: String,
-    },
-  reviewDate: {
-    type: Number,
-    default: function(){
-      return new Date()
-    },
-  }
+  author: {type: ObjectId, ref: 'User'}
+  
 })
 
 

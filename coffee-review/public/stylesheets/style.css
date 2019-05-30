@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.landing-image {
+  height: 100vmin;
+  width: 100vmax;
+}
+
+#nav-toggle-state {
+  display: none;
+}
+
+#nav-toggle-state:checked ~ .nav-menu {
+  display: block;
+}

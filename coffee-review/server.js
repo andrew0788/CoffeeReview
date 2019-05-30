@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const logger = require('morgan');
-const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
 
 const app = express();
@@ -18,6 +17,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const coffeesRouter = require('./routes/coffees');
 const reviewsRouter = require('./routes/reviews');
+const server = app.listen(5000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,9 +37,11 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/coffees', coffeesRouter);
-app.use('/reviews', reviewsRouter);
+app.use('/', reviewsRouter);
+
+app.use(express.static('public'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

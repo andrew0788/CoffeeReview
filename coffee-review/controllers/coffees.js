@@ -30,7 +30,6 @@ function show(req, res){
       res.render('coffees/show', {
         title: coffee.name,
         coffee,
-        reviews,
         user: req.user,
         name:req.query.name
       });
@@ -40,7 +39,8 @@ function show(req, res){
 
 
 function newCoffee(req, res){
-  Coffee.findById(req.params.id).exec(function(err, coffee){
+  Coffee.findById(req.params.id).populate('reviews').exec(function(err, coffee){
+    console.log(coffee);
     res.render('coffees/new', {
       title: 'add coffee',
       coffee,
@@ -50,7 +50,6 @@ function newCoffee(req, res){
 }
 
 function create(req, res){
-  console.log(req.body)
   for (let key in req.body){
     if (req.body[key] === '') delete req.body[key];
   }
@@ -62,11 +61,12 @@ function create(req, res){
   });
 }
 function newReview(req, res){
-  console.log(req.params.id)
   Coffee.findById(req.params.id).exec(function(err, coffee){
+    console.log(coffee);
     res.render('reviews/new', {
-      title: `Add a review for the ${coffee.name} from ${coffee.roaster}`,
+      title: `Add a review for ${coffee.name} by ${coffee.roaster}`,
       user: req.user,
+      name: req.query.name,
       coffee,
     });
   });

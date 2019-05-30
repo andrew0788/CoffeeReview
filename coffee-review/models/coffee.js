@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const ObjectId = Schema.Types.ObjectId;
 const Review = require('./review');
 
 const coffeeSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    // required: true,
   },
   region: String,
   roaster: {
@@ -14,8 +14,10 @@ const coffeeSchema = new Schema({
     required: true,
   },
   description: String,
-  reviews: [{type:Schema.Types.ObjectId, ref:'Review'}],
-  link: String
+  reviews: [{type: ObjectId, ref: 'Review'}],
+  link: String,
+  creator: String,
+  imageLink: String
 })
 
 
