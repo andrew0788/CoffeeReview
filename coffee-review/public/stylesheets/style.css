@@ -19,3 +19,7 @@ a {
 #nav-toggle-state:checked ~ .nav-menu {
   display: block;
 }
+
+.hero-space{
+  margin-bottom: 15px;
+}

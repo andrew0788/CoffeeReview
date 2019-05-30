@@ -13,26 +13,26 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <img src='/images/coffee.svg' alt="coffee icon">
-        <h1 class="title">Coffee Snob</h1>
+        <div class="container">
+          <h1 class="navbar-brand">Coffee Snob</h1>
       </a>
-    </div>
-      <a class="navbar-item label" href='/coffees'>View Coffees</a>
+        </div>
+        <div class="navbar-right nav-menu">
+        <a class="navbar-item label" href='/coffees'>View Coffees</a>
+        <% if (user) { %>
+          <a class="nav-item label" href="/logout">Log Out</a>
+          <a class="nav-item label" href="/users/<%= user._id %>/">Edit Profile</a>
+          <a class="nav-item label" href='/coffees/new'>Add Coffee</a>
+        <% } else { %>
+          <a href="/auth/google"><i class=""></i>Login with Google</a>
+        <% } %>
+      </div>
     </div>
     <label class="nav-toggle" for="nav-toggle-state">
       <span></span>
       <span></span>
       <span></span>
     </label>
-      <div class="navbar-right nav-menu">
-            <% if (user) { %>
-              <input type="checkbox" id="nav-toggle-state">
-                <a class="nav-item" href="/logout">Log Out</a>
-                <a class="nav-item" href="/users/<%= user._id %>/update">Edit Profile</a>
-                <a class="nav-item" href='/coffees/new'>Add Coffee</a>
-            <% } else { %>
-              <a href="/auth/google"><i class=""></i>Login with Google</a>
-            <% } %>
-    </div>
   </nav>
 
   <section class="hero is-primary is-small">
@@ -40,6 +40,9 @@
       <div class="container level-left">
         <h1 class="title"><%= title %></h1>
       </div>
+    </div>
+    <div class="hero-space">
+
     </div>
   </section>
 <main>

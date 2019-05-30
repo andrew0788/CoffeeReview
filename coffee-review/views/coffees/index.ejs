@@ -3,22 +3,25 @@
   <% coffees.forEach(function(c){ %>
     <% console.log(c); %>
     <div class="column">
+      <a class="label link" href="/coffees/<%= c._id %>">
       <article class="media">
       <figure class= media-left>
-        <a class="label link" href="/coffees/<%= c._id %>">
         <p class='image is-64x64'>
           <% if (c.imageLink) { %>
-            <img src="src="<%= c.imageLink %>" alt="roaster">
+            <img src="<%= c.imageLink %>" alt="roaster">
           <% } else { %>
             <img src="/images/paul-esch-laurent-1598744-unsplash.jpg" alt="Image of <%= c.name %>">
           <% }; %>
+          <%= c.name %>
         </p>
       </figure>
-        <%= c.name %>
-      </a>
-      <h4><%= c.region %></h4>
-      <h4><%= c.roaster %></h4>
+      <div class="media-content">
+        <p><%= c.region %></p>
+        <br>
+        <p><%= c.roaster %></p>
+    </div>
     </article>
+  </a>
     </div>
    <% }) %>
 </div>

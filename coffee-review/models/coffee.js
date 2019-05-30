@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 const Review = require('./review');
+const User = require('./user');
 
 const coffeeSchema = new Schema({
   name: {
@@ -16,7 +17,7 @@ const coffeeSchema = new Schema({
   description: String,
   reviews: [{type: ObjectId, ref: 'Review'}],
   link: String,
-  creator: String,
+  creator: {type: ObjectId, ref: 'User'},
   imageLink: String
 })
 

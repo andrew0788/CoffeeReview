@@ -1,16 +1,18 @@
 const Coffee = require('../models/coffee');
 const Review = require('../models/review');
+const User = require('../models/user');
 
 module.exports = {
   create,
   newCoffee,
   index,
   show,
-  newReview
+  newReview,
+  deleteCoffee
 }
 
 function index(req, res){
-  console.log(req.query);
+  console.log(req.query.id);
   Coffee.find({}, function(err, coffees){
     res.render('coffees/index', {
       title:'Search Coffees',
@@ -22,11 +24,11 @@ function index(req, res){
 }
 
 function show(req, res){
-  console.log(req.params.id);
   Coffee.findById(req.params.id)
   .populate('reviews').exec(function(err, coffee){
-    Review.find({_id:{$nin: coffee.review}})
-    .exec(function(err, reviews){
+    Review.find({_id:{$nin: coffee.reviews}})
+    .populate('author').exec(function(err, reviews){
+      console.log('this' + reviews);
       res.render('coffees/show', {
         title: coffee.name,
         coffee,
@@ -36,7 +38,6 @@ function show(req, res){
     });
   });
  }
-
 
 function newCoffee(req, res){
   Coffee.findById(req.params.id).populate('reviews').exec(function(err, coffee){
@@ -60,6 +61,7 @@ function create(req, res){
     res.redirect('/coffees');
   });
 }
+
 function newReview(req, res){
   Coffee.findById(req.params.id).exec(function(err, coffee){
     console.log(coffee);
@@ -70,4 +72,13 @@ function newReview(req, res){
       coffee,
     });
   });
+}
+
+function deleteCoffee(req, res, next) {
+  User.findOne({'coffees._id': req.params.id}), function(err, user) {
+    user.coffees.id(req.params.id).remove();
+    user.save(function(err) {
+      res.redirect('/user');
+    });
+  };
 }

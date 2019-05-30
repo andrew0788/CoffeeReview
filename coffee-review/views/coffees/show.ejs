@@ -1,28 +1,40 @@
 <%- include('./../partials/header') %>
 
-  <div class="field">
-    <a href="<%= coffee.link %>">
-      <%= coffee.roaster %>
-    </a>
+  <div class="columns">
+    <div class="column">
+      <div class="columns is-mobile is-half">
+
+      <a href="<%= coffee.link %>">
+        <figure class="image is-128x128">
+        <% if (coffee.imageLink) { %>
+          <img src="<%= coffee.imageLink %>" alt="roaster">
+        <% } else { %>
+          <img src="/images/paul-esch-laurent-1598744-unsplash.jpg" alt="Image of <%= coffee.name %>">
+        <% }; %>
+      </a>
+      <a class="button" href="<%= coffee._id %>/reviews">Add New Review</a>
+      </div>
     </div>
+  </div>
+
+    <div class="column">
     <% coffee.reviews.forEach(function(r){ %>
+      <% if (r.author === user) console.log('alright'); %>
       <% console.log(r.author); %>
+      <div class="colums is-mobile is-half">
+
+      </div>
       <article class="media">
         <figure class="media-left">
-          <p><%= r.author %></p>
+          <p><%= r.author.name %></p>
         </figure>
         <div class="media-content">
           <p><%= r.score %></p>
           <p><%= r.brewStyle %></p>
+          <p><%= r.flavorNotes %></p>
           <p><%= r.reviewText %></p>
         </div>
       </article>
         <% }); %>
-      <div class="column">
-        <article class="media">
-        </article>
-</div>
-<a class="button" href="<%= coffee._id %>/reviews">
-  Add New Review
-</a>
+      </div>
 <%- include('./../partials/footer') %>

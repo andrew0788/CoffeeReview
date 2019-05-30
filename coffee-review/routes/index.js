@@ -19,7 +19,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/coffeeReviewOAuth', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/coffees',
     failureRedirect: '/'
   }
 ));

@@ -5,12 +5,11 @@
 
 </div>
 <div class="field is-grouped is-grouped-centered">
-  <form class="" action="users/<%= user.id %>/update" method="POST">
+  <form class="" action="/users/<%= user.id %>/update" method="PUT">
     <label class="label">What equipment do you have?</label>
       <div class="control">
-        <div class="input">
-          <select class="" name="equipment">
-        </div>
+        <input class="input" type='text' value="" nam='equipment'>
+          <p class="help">Seperate with comments</p>
       </div>
       <button class="button" type="submit">Save Review</button>
       </div>
