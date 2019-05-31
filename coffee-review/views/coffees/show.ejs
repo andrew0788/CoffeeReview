@@ -10,8 +10,11 @@
           <img src="<%= coffee.imageLink %>" alt="roaster">
         <% } else { %>
           <img src="/images/paul-esch-laurent-1598744-unsplash.jpg" alt="Image of <%= coffee.name %>">
-        <% }; %>
       </a>
+      <article class="">
+        <p><%= coffee.description %></p>
+      </article>
+      <% }; %>
       <a class="button" href="<%= coffee._id %>/reviews">Add New Review</a>
       </div>
     </div>

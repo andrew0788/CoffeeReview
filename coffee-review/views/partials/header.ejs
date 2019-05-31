@@ -19,22 +19,21 @@
 
       </div>
         <div class="navbar-right nav-menu">
-          <div class="container">
-            <a class="navbar-item label" href='/coffees'>View Coffees</a>
+          <label class="nav-toggle" for="nav-toggle-state">
           </div>
-        <label class="nav-toggle" for="nav-toggle-state">
           <span></span>
           <span></span>
           <span></span>
         </label>
-        <div class="container">
+        <a class="navbar-item label" href='/coffees'>View Coffees</a>
+        <div class="container navbar-item">
         <% if (user) { %>
-          <a class="nav-item label" href="/logout">Log Out</a>
-          <a class="nav-item label" href="/users/<%= user._id %>/">Edit Profile</a>
-          <a class="nav-item label" href='/coffees/new'>Add Coffee</a>
+          <a class="navbar-item label" href="/users/<%= user._id %>/">Edit Profile</a>
+          <a class="navbar-item label" href='/coffees/new'>Add Coffee</a>
+          <a class="navbar-item label" href="/logout">Log Out</a>
         <% } else { %>
           <a href="/auth/google"><i class=""></i>Login with Google</a>
-        <% } %>
+        <% }; %>
         </div>
       </div>
     </div>
