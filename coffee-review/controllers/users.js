@@ -17,20 +17,23 @@ function index(req, res, next){
 }
 
 function update(req, res){
+  console.log("________!!!!LOOOK HERE !!!!______" + req.body);
   User.findById(req.user.id, function(err, user){
     console.log("update" + req.body);
-    user.equipment.push(req.body.equipment);
+    user.equipment.push(req.body);
     if (err){
       console.log('error at user update');
       res.redirect('/coffees');
     } else {
-      user.equipment.save();
-      res.redirect('/coffees')
+      user.save(function(err){
+        if (err) return res.render('coffees/new');
+        res.redirect('/coffees');
+      });
     };
   });
 }
 
-function privateView(req, res){
+function privateView(res, req){
   res.send("you should not be here");
 }
 

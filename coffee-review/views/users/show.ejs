@@ -2,6 +2,7 @@
 
 <div class="level">
   <h1 class="label"><%= user.name %></h1>
+  <% user.equipment.forEach((e => `<h3>e</h3>`)) %>
 </div>
   <div class="tile is-ancestor">
   <% coffees.forEach(function(c){ %>
@@ -29,11 +30,11 @@
   <form class="" action="/users/<%= user.id %>/update" method="PUT">
     <label class="label">What equipment do you have?</label>
       <div class="control">
-        <input class="input" type="text" name="equipment">
+        <input class="input" type='text' value="" nam='equipment'>
           <p class="help">Seperate with comments</p>
       </div>
-      <button class="button" type="submit" name="update-profile">Update</button>
+      <button class="button" type="submit">Update</button>
+      </div>
     </form>
-  </div>
-
+</div>
 <%- include('./../partials/footer') %>

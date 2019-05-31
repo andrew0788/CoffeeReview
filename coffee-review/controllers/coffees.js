@@ -12,7 +12,6 @@ module.exports = {
 }
 
 function index(req, res){
-  console.log(req.query.id);
   Coffee.find({}, function(err, coffees){
     res.render('coffees/index', {
       title:'Search Coffees',
@@ -50,6 +49,7 @@ function newCoffee(req, res){
 }
 
 function create(req, res){
+  console.log(req.body);
   for (let key in req.body){
     if (req.body[key] === '') delete req.body[key];
   }
