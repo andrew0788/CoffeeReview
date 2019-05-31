@@ -8,7 +8,7 @@ const userSchema = new Schema({
   email: String,
   avatar: String,
   location: String,
-  equipment: [String],
+  equipment: String,
   googleId: String,
   userCoffees: [{type: ObjectId, ref: 'Coffee'}],
 }, {

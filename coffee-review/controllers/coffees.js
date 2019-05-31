@@ -8,7 +8,7 @@ module.exports = {
   index,
   show,
   newReview,
-  deleteCoffee
+  delCoffee
 }
 
 function index(req, res){
@@ -28,7 +28,6 @@ function show(req, res){
   .populate('reviews').exec(function(err, coffee){
     Review.find({_id:{$nin: coffee.reviews}})
     .populate('author').exec(function(err, reviews){
-      console.log('this' + reviews);
       res.render('coffees/show', {
         title: coffee.name,
         coffee,
@@ -64,7 +63,6 @@ function create(req, res){
 
 function newReview(req, res){
   Coffee.findById(req.params.id).exec(function(err, coffee){
-    console.log(coffee);
     res.render('reviews/new', {
       title: `Add a review for ${coffee.name} by ${coffee.roaster}`,
       user: req.user,
@@ -74,11 +72,14 @@ function newReview(req, res){
   });
 }
 
-function deleteCoffee(req, res, next) {
-  User.findOne({'coffees._id': req.params.id}), function(err, user) {
-    user.coffees.id(req.params.id).remove();
-    user.save(function(err) {
-      res.redirect('/user');
-    });
-  };
+function delCoffee(req, res, next) {
+  Coffee.findByIdAndRemove(req.params.id, function(err, coffee){
+    if (err){
+      console.log("error");
+      throw error;
+    } else {
+      console.log(coffee);
+      res.redirect('/coffees');
+    }
+  })
 }

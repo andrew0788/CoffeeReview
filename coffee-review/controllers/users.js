@@ -16,20 +16,25 @@ function index(req, res, next){
   });
 }
 
-function update(res, req){
-  res.redirect('users/update', {
-    user: req.user,
-    name: req.query.name,
-    title: ''
+function update(req, res){
+  User.findById(req.user.id, function(err, user){
+    console.log("update" + req.body);
+    user.equipment.push(req.body.equipment);
+    if (err){
+      console.log('error at user update');
+      res.redirect('/coffees');
+    } else {
+      user.equipment.save();
+      res.redirect('/coffees')
+    };
   });
 }
 
-function privateView(res, req){
+function privateView(req, res){
   res.send("you should not be here");
 }
 
 function show(req, res){
-  console.log(req.params.id);
   Coffee.find({creator: req.params.id}).populate('reviews').exec(function(err, coffees){
   Review.find({author: req.params.id}).exec(function(err, reviews){
     console.log(reviews );

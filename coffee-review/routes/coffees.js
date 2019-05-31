@@ -7,7 +7,7 @@ router.get('/new', isLoggedIn, coffeeCtrl.newCoffee);
 router.get('/:id', coffeeCtrl.show);
 router.post('/', isLoggedIn, coffeeCtrl.create);
 router.get('/:id/reviews', isLoggedIn, coffeeCtrl.newReview)
-
+router.delete('/:id', coffeeCtrl.delCoffee)
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

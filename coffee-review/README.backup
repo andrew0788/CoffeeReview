@@ -1,0 +1,15 @@
+# Coffee Snob
+
+## Coffee Review Site	
+#### https://coffee-snob.herokuapp.com/
+
+## Created with Node.js, MongoDb, HTML and CSS
+
+![Alt text](https://i.imgur.com/IakjQvV.jpg)
+![Alt text](https://i.imgur.com/ptT56Vq.png)
+![Alt text](https://i.imgur.com/zJN9CnM.png)
+![Alt text](https://i.imgur.com/VUxdrvm.png)
+
+
+#### As a visitor to Coffee-Snob you are able to brows the coffees and reviews posted by others. 
+#### Once you have created an account using Google OAuth you are able to see your profile with the 

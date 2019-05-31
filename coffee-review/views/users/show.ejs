@@ -3,26 +3,37 @@
 <div class="level">
   <h1 class="label"><%= user.name %></h1>
 </div>
-<div class="field is-grouped">
+  <div class="tile is-ancestor">
   <% coffees.forEach(function(c){ %>
-    <article class="media">
-      <figure class='media-left'>
-        <p><%= c.name %></p>
-      </figure>
-
-    </article>
+    <div class="tile level is-mobile">
+      <article class="media">
+        <figure class='media-left'>
+          <p class ="level is-mobile"><%= c.name %></p>
+        </figure>
+        <div class="media-content">
+          <p><%= c.roaster %></p>
+        </div>
+        <div class="media-right">
+          <nav class="level is-mobile">
+            <form action="/coffees/<%= c._id %>?_method=DELETE" method="POST" class="secondary-content">
+              <button type="submit" name="delete">❌</button>
+            </form>
+        </nav>
+        </div>
+      </article>
+    </div>
   <% }); %>
-
 </div>
+
 <div class="field is-grouped">
   <form class="" action="/users/<%= user.id %>/update" method="PUT">
     <label class="label">What equipment do you have?</label>
       <div class="control">
-        <input class="input" type='text' value="" nam='equipment'>
+        <input class="input" type="text" name="equipment">
           <p class="help">Seperate with comments</p>
       </div>
-      <button class="button" type="submit">Save Review</button>
-      </div>
+      <button class="button" type="submit" name="update-profile">Update</button>
     </form>
-</div>
+  </div>
+
 <%- include('./../partials/footer') %>
