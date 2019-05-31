@@ -1,6 +1,6 @@
 <%- include('./../partials/header') %>
 
-  <div class="columns">
+  <div class="columns clearfix">
     <div class="column">
       <div class="columns is-mobile is-half">
 
@@ -17,11 +17,9 @@
     </div>
   </div>
 
+  <div class="field">
     <div class="column">
     <% coffee.reviews.forEach(function(r){ %>
-      <% if (r.author === user) console.log('alright'); %>
-      <% console.log(r.author); %>
-      <div class="colums is-mobile is-half">
 
       </div>
       <article class="media">

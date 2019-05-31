@@ -2,9 +2,19 @@
 
 <div class="level">
   <h1 class="label"><%= user.name %></h1>
+</div>
+<div class="field is-grouped">
+  <% coffees.forEach(function(c){ %>
+    <article class="media">
+      <figure class='media-left'>
+        <p><%= c.name %></p>
+      </figure>
+
+    </article>
+  <% }); %>
 
 </div>
-<div class="field is-grouped is-grouped-centered">
+<div class="field is-grouped">
   <form class="" action="/users/<%= user.id %>/update" method="PUT">
     <label class="label">What equipment do you have?</label>
       <div class="control">

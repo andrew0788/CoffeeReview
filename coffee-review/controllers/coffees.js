@@ -54,10 +54,10 @@ function create(req, res){
   for (let key in req.body){
     if (req.body[key] === '') delete req.body[key];
   }
+  req.body.creator = req.user.id;
   let coffee = new Coffee(req.body);
   coffee.save(function(err){
     if (err) return res.render('coffees/new');
-    console.log(coffee);
     res.redirect('/coffees');
   });
 }

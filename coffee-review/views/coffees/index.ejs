@@ -1,10 +1,8 @@
 <%- include('./../partials/header') %>
-  <div class="columns">
   <% coffees.forEach(function(c){ %>
     <% console.log(c); %>
-    <div class="column">
-      <a class="label link" href="/coffees/<%= c._id %>">
       <article class="media">
+      <a class="label link" href="/coffees/<%= c._id %>">
       <figure class= media-left>
         <p class='image is-64x64'>
           <% if (c.imageLink) { %>
@@ -19,11 +17,10 @@
         <p><%= c.region %></p>
         <br>
         <p><%= c.roaster %></p>
-    </div>
+      </div>
+    </a>
     </article>
-  </a>
-    </div>
-   <% }) %>
-</div>
+    <% }) %>
+
 
 <%- include('./../partials/footer') %>

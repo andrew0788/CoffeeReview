@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Coffee = require('../models/coffee');
+const Review = require('../models/review');
 module.exports = {
   index,
   update,
@@ -28,12 +29,17 @@ function privateView(res, req){
 }
 
 function show(req, res){
-  Coffee.findById({'coffees.author': req.user}).populate('reviews').exec(function(err, coffee){
-      console.log(coffee);
-    })
+  console.log(req.params.id);
+  Coffee.find({creator: req.params.id}).populate('reviews').exec(function(err, coffees){
+  Review.find({author: req.params.id}).exec(function(err, reviews){
+    console.log(reviews );
   res.render('users/show', {
+    coffees,
+    reviews,
     user: req.user,
     name: req.query.name,
     title: `${req.user.name}'s profile`
   });
- };
+  });
+});
+}
