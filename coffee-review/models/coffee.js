@@ -17,7 +17,7 @@ const coffeeSchema = new Schema({
   description: String,
   reviews: [{type: ObjectId, ref: 'Review'}],
   link: String,
-  creator: {type: ObjectId, ref: 'User'},
+  author: {type: ObjectId, ref: 'User'},
   imageLink: String
 })
 

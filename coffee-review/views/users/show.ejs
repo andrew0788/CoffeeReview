@@ -3,9 +3,9 @@
 
 <div class="level">
   <h1 class="label"><%= user.name %></h1>
-  <% user.equipment.forEach((e => `<h3>e</h3>`)) %>
+  <% user.equipment.forEach((e => `<h3>${e}</h3>`)) %>
 </div>
-  <div class="tile is-ancestor">
+<div class="tile is-ancestor">
   <% coffees.forEach(function(c){ %>
       <article class="media">
         <figure class='media-left'>

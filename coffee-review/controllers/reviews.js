@@ -27,7 +27,7 @@ function addReview(req, res){
 function show(req, res) {
     res.render('/reviews/new', {
       coffee: req.params.id,
-      user: req.user,
+      user: req.user.name,
       name: req.query.name,
       title: ""
     });

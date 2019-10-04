@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 10vw 10vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,9 +7,12 @@ a {
   color: #00B7FF;
 }
 
-.landing-image {
-  height: 100vmin;
-  width: 100vmax;
+#landing-image {
+  height: 80vh;
+  width: 100vw;
+  background-image: url("/images/marc-babin-676189-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #nav-toggle-state {
@@ -22,4 +25,13 @@ a {
 
 .hero-space{
   margin-bottom: 15px;
+}
+
+.coffee-show-image{
+  max-width: 25vh;
+  max-width: 25vh;
+}
+
+.container{
+  padding: 10px;
 }

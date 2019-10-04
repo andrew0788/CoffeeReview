@@ -23,19 +23,19 @@ function index(req, res){
 }
 
 function show(req, res){
+  console.log('here');
   Coffee.findById(req.params.id)
   .populate('reviews').exec(function(err, coffee){
     Review.find({_id:{$nin: coffee.reviews}})
-    .populate('author').exec(function(err, reviews){
+
       res.render('coffees/show', {
         title: coffee.name,
         coffee,
         user: req.user,
         name:req.query.name
       });
-    });
   });
- }
+}
 
 function newCoffee(req, res){
   Coffee.findById(req.params.id).populate('reviews').exec(function(err, coffee){
@@ -53,7 +53,7 @@ function create(req, res){
   for (let key in req.body){
     if (req.body[key] === '') delete req.body[key];
   }
-  req.body.creator = req.user.id;
+  req.body.author = req.user.id;
   let coffee = new Coffee(req.body);
   coffee.save(function(err){
     if (err) return res.render('coffees/new');

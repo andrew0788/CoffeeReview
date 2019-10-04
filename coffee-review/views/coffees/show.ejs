@@ -1,41 +1,32 @@
+
 <%- include('./../partials/header') %>
-
-  <div class="columns clearfix">
-    <div class="column">
-      <div class="columns is-mobile is-half">
-
+<div class = "container clearfix">
+  <div class="tile is-ancestor">
+    <div class='tile'>
       <a href="<%= coffee.link %>">
-        <figure class="image is-128x128">
         <% if (coffee.imageLink) { %>
-          <img src="<%= coffee.imageLink %>" alt="roaster">
+          <img src="<%= coffee.imageLink %>" alt="Image of <%= coffee.name %>">
         <% } else { %>
           <img src="/images/paul-esch-laurent-1598744-unsplash.jpg" alt="Image of <%= coffee.name %>">
+        <% }; %>
       </a>
-      <article class="">
-        <p><%= coffee.description %></p>
-      </article>
-      <% }; %>
-      <a class="button" href="<%= coffee._id %>/reviews">Add New Review</a>
+    </div>
+    <div class="tile">
+      <p><%= coffee.description %></p>
+    </div>
+    <div class="tile is-parent">
+      <div class='tile is-child'>
+      <% coffee.reviews.forEach(function(r){ %>
+        <div class='box tile is-child'>
+        <p><%= r.author.name %></p>
+        <p><%= r.score %></p>
+        <p><%= r.brewStyle %></p>
+        <p><%= r.flavorNotes %></p>
+        <p><%= r.reviewText %></p>
       </div>
+      <% }); %>
+      <a class="button" href="<%= coffee._id %>/reviews">Add New Review</a>
     </div>
   </div>
-
-  <div class="field">
-    <div class="column">
-    <% coffee.reviews.forEach(function(r){ %>
-
-      </div>
-      <article class="media">
-        <figure class="media-left">
-          <p><%= r.author.name %></p>
-        </figure>
-        <div class="media-content">
-          <p><%= r.score %></p>
-          <p><%= r.brewStyle %></p>
-          <p><%= r.flavorNotes %></p>
-          <p><%= r.reviewText %></p>
-        </div>
-      </article>
-        <% }); %>
-      </div>
+</div>
 <%- include('./../partials/footer') %>

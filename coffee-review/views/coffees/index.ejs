@@ -1,28 +1,35 @@
 <%- include('./../partials/header') %>
+  <div class = "container clearfix">
   <% coffees.forEach(function(c){ %>
-    <% console.log(c); %>
+    <% console.log(c) %>
       <article class="media">
-      <a class="label link" href="/coffees/<%= c._id %>">
-      <figure class= media-left>
-        <p class='image is-64x64'>
+      <figure class= "media-left">
+        <figure class='image is-128x128'>
+        <a class="label link" href="/coffees/<%= c._id %>">
           <% if (c.imageLink) { %>
-            <img src="<%= c.imageLink %>" alt="roaster">
+            <img src="<%= c.imageLink %>" alt="Image of <%= c.name %>">
           <% } else { %>
             <img src="/images/paul-esch-laurent-1598744-unsplash.jpg" alt="Image of <%= c.name %>">
           <% }; %>
-        </p>
+        </a>
+        </figure>
       </figure>
       <div class="media-content">
-        <p>
+        <h3 class='title'>
           <%= c.name %>
-        </p>
-        <p><%= c.region %></p>
-        <br>
-        <p><%= c.roaster %></p>
+        </h3>
+        <h3 class ='subtitle'>
+          <%= c.roaster %>
+        </h3>
+        <h3 class ='subtitle'>
+          <%= c.region %>
+        </h3>
+        <div class="content">
+          <p><%= c.description %></p>
+        </div>
       </div>
-    </a>
     </article>
     <% }) %>
-
+  </div>
 
 <%- include('./../partials/footer') %>

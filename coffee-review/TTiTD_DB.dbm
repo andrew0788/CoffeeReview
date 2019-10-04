@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="user">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="240" y="140"/>
+	<column name="username">
+		<type name="char" length="0"/>
+	</column>
+	<column name="Location">
+		<type name="char" length="0"/>
+	</column>
+	<column name="Age">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Weight">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Height">
+		<type name="smallint" length="0"/>
+	</column>
+</table>
+
+<table name="Review">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="922" y="472"/>
+	<column name="UserKey">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Rating">
+		<type name="smallint" length="0"/>
+	</column>
+</table>
+
+</dbmodel>
