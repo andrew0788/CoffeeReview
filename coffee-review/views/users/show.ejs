@@ -3,11 +3,12 @@
 <div class="container clearfix">
   <div class="tile is-ancestor">
     <div class="tile">
-      <% user.equipment.forEach((e => `<h3>${e}</h3>`)) %>
+      <% user.equipment.forEach((function (e){`<h3>e</h3>`})) %>
     </div>
   </div>
   <div class="tile is-ancestor">
-    <% coffees.forEach(function(c){ %>
+    <% if (user.Coffee){ %>
+    <% user.Coffee.forEach(function(c){ %>
       <article class="media">
         <figure class='media-left'>
           <p class ="level is-mobile"><%= c.name %></p>
@@ -24,15 +25,19 @@
         </div>
       </article>
     <% }); %>
+    <% } %>
   </div>
   <div class="field is-grouped">
-    <form class="" action="/users/<%= user.id %>/update" method="PUT">
+    <form id='update-user' action="/users/<%= user.id %>/update" method="PUT">
       <label class="label">What equipment do you have?</label>
         <div class="control">
-          <input class="input" type='text' value="" nam='equipment'>
+          <input class="input" type='text' value="" name='equipment'>
           <p class="help">Seperate with comments</p>
         </div>
-        <button class="button" type="submit">Update</button>
+        <label class="checkbox">Are you a roaster?
+          <input type="checkbox" name="" value="isRoaster">
+        </label>
+        <input type='submit' value='Update'>
       </form>
   </div>
 </div>

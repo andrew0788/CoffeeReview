@@ -17,13 +17,12 @@ function index(req, res, next){
 }
 
 function update(req, res){
-  console.log("________!!!!LOOOK HERE !!!!______" + req.body);
-  User.findById(req.user.id, function(err, user){
+  User.findByIdAndUpdate(req.user.id, function(err, user){
     console.log("update" + req.body);
     user.equipment.push(req.body);
     if (err){
       console.log('error at user update');
-      res.redirect('/coffees');
+      res.redirect('/users/<%= user._id %>');
     } else {
       user.save(function(err){
         if (err) return res.render('coffees/new');
@@ -38,12 +37,10 @@ function privateView(res, req){
 }
 
 function show(req, res){
-  Coffee.find({creator: req.params.id}).populate('reviews').exec(function(err, coffees){
-  Review.find({author: req.params.id}).exec(function(err, reviews){
-    console.log(reviews );
+  User.findById(req.params.id).populate({path: 'coffee', select: 'userCoffees'}).exec(function(err, user){
+    Review.find({author: req.params.id}).exec(function(err, reviews){
+      console.log(reviews );
   res.render('users/show', {
-    coffees,
-    reviews,
     user: req.user,
     name: req.query.name,
     title: `${req.user.name}'s profile`
